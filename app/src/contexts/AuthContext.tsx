@@ -6,9 +6,6 @@ import { AccountCredentials } from "../models/AccountCredentials";
 import { useAuthService } from "../seguranca/auth.service";
 import { API_1 } from "../config/api";
 
-
-
-
 type AuthContextType = {
     isAuthenticated: boolean;
     user: UserInfo | null;
@@ -72,8 +69,8 @@ export function AuthProvider({ children }: any) {
         //     throw Error("Credencias do usuário devem ser informadas")
         // }
 
-        const user: UserInfo = await servico.signin(body)
-
+        const user: any = await servico.signin(body)
+        localStorage.setItem('token', user.AuthenticationResult.AccessToken)
         setUser(user)
 
         return user;

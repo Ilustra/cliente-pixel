@@ -44,10 +44,13 @@ export function getAPIClient(ctx?: any) {
                 console.log('isPermissaoNegada: {}');
                 //Router.push("/permissao-negada")
             }
+
         }
 
         if (err.error && err.status == 504) {
+
             console.log("erro 504 - conexao com servidor")
+
         }
 
         return Promise.reject(error); 

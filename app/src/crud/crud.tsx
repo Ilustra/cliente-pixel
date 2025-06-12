@@ -14,6 +14,9 @@ export const useCrud = <F extends DefaultFilter, T> (httpClient: AxiosInstance, 
     }
     const findAll = async (filter?: F, configRequest?: AxiosRequestConfig<any>): Promise<Paginator<T>> => {
         const response = await httpClient.get(baseUrl, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
+            },
             withCredentials: true,
             params: filter,
             ...configRequest
