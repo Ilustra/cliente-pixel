@@ -13,8 +13,10 @@ export default function Home({ Component, pageProps }: AppProps) {
 
 
   return (
-
-              <Component { ...pageProps} />
+    <AuthenticatedRoute>
+       <Component { ...pageProps} />
+    </AuthenticatedRoute>
+             
 
   );
 }

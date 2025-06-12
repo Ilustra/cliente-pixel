@@ -7,7 +7,7 @@ export default function HomePage() {
     const service = useService();
 
     useEffect(() => {
-        service.findAll().then((response) => {
+        service.findAll().then((response: any) => {
             console.log("Usuários encontrados:", response);
             setList(response);
         }).catch((error) => {

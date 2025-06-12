@@ -18,8 +18,6 @@ const Login: React.FC = () => {
 
         setLoading(true)
 
-        //if (errorMsg) setErrorMsg('')
-
         const body: AccountCredentials = {
             username: e.currentTarget.username.value,
             password: e.currentTarget.password.value,
