@@ -16,6 +16,14 @@ export const useServiceV2 =()=>{
     const baseUrl = API_2+'/user';
     const httpClient = getAPIClient();
     const crud = useCrud<any, any>(httpClient, baseUrl);
+
+    const execute = async (query: string, variables?: any): Promise<any> => {
+        const response = await httpClient.post(baseUrl, {
+            query,
+            variables,
+        });
+        return response.data;
+    }
     const findAll2 = async (filter?: any, configRequest?: AxiosRequestConfig<any>): Promise<Paginator<any>> => {
          const query = `
 {
@@ -33,6 +41,7 @@ export const useServiceV2 =()=>{
     }
     return {
         ...crud,
-        findAll2
+        findAll2,
+        execute
     }
 }
